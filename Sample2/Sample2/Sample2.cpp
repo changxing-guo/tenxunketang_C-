@@ -3,8 +3,7 @@
 
 using namespace std;
 
-int main(void) {
-
+void test1() {
 	Square square;
 	square.setPosition(1, 1);
 	square.setLength(3);
@@ -24,6 +23,16 @@ int main(void) {
 
 	test = square.isContain(p3);
 	cout << "p3 is exit = " << test << endl;
+}
+
+void test2() {
+	//测试带参数的构造函数
+	Square square(10);
+}
+
+int main(void) {
+
+	test2();
 
 	return 0;
 }

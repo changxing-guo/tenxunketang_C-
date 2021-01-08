@@ -1,4 +1,20 @@
 #include "Square.h"
+#include <iostream>
+
+Square::Square()
+{
+	printf("这是Square构造函数\n");
+}
+
+Square::Square(int p)
+{
+	printf("这是Square构造函数 p = %d\n", p);
+}
+
+Square::~Square()
+{
+	printf("这是Square析构函数\n");
+}
 
 void Square::setLength(int len)
 {
