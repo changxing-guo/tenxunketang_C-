@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Square.h"
+#include "Teacher.h"
 
 using namespace std;
 
@@ -30,9 +31,15 @@ void test2() {
 	Square square(10);
 }
 
+void test3() {
+	Teacher t(22, "jack");
+	t.setAppend("jack is a good!");
+	printf("age = %d, info = %s\n", t.getAge(), t.getInfo());
+	printf("append is %s\n", t.getAppend());
+}
+
 int main(void) {
 
-	test2();
-
+	test3();
 	return 0;
 }
