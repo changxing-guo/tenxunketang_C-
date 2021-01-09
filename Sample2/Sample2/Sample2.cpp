@@ -66,8 +66,75 @@ void test4() {
 	printf("\n");
 }
 
+//赋值（拷贝）构造函数四种使用场景
+//1)第一种场景，使用等号赋值
+void test5() {
+	Demo a(1, 2);
+	a.print();
+	printf("\n");
+
+	Demo b = a;//如果类没有赋值构造函数，C++编译器会使用默认的赋值构造函数
+	b.print();
+	printf("\n");
+
+	Demo c(3, 4);//赋值构造函数当且仅当创建对象的时候调用
+	c.print();
+	c = a;	//这个是类的符号重载
+	c.print();
+	printf("\n");
+}
+
+//2)第二种场景，使用括号赋值
+void test6() {
+	Demo a(1, 2);
+	a.print();
+	printf("\n");
+
+	Demo b(a); //调用赋值构造函数
+	b.print();
+	printf("\n");
+}
+
+//3)第三种场景，类的对象作为函数的形参，会调用赋值构造函数
+void disPlay(Demo d) {
+	d.print();
+}
+
+void test7() {
+	Demo a(3, 2);
+	disPlay(a);//调用赋值构造函数
+}
+
+//4)第四种场景，类的对象作为函数的返回值,会调用赋值构造函数吗？会
+Demo getObj() {
+	Demo a(10, 20);
+	a.print();
+	return a;
+}
+
+void test8() {
+	//1、没有对象接收返回的对象，会创建一个匿名对象
+	//getObj();
+
+	//2、使用函数返回的对象初始化新的对象
+	//Demo b = getObj();//调用了赋值构造函数
+	//b.print();
+
+	//3、使用函数返回的对象赋值给另一个变量，会？
+	Demo c(1, 2);
+	c.print();
+	printf("\n");
+
+	//创建了一个匿名对象，匿名对象调用了赋值构造函数，他赋值给c对象后自己销毁
+	//c++编译器自己偷偷做的，一定要记住
+	c = getObj();
+	printf("\n");
+
+	c.print();
+}
+
 int main(void) {
 
-	test4();
+	test8();
 	return 0;
 }

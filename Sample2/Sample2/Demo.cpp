@@ -24,11 +24,17 @@ Demo::Demo(int a, int b)
 Demo::Demo(const Demo & obj)
 {
 	cout << "Demo(const Demo & obj)" << endl;
-	m_a = obj.m_a;
-	m_b = obj.m_b;
+	//m_a = obj.m_a;
+	//m_b = obj.m_b;
 }
 
-/*Demo::~Demo()
+void Demo::print(void)
+{
+	cout << "m_a = " << m_a << ", m_b = " << m_b << endl;
+}
+
+Demo::~Demo()
 {
 	cout << "~Demo()" << endl;
-}*/
+	//print();
+}

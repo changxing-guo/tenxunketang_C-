@@ -9,6 +9,7 @@ public:
 	Demo(int a, int b);
 	//赋值构造函数
 	Demo(const Demo &obj);
-	//~Demo();
+	void print(void);
+	~Demo();
 };
 
