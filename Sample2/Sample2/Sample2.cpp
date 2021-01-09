@@ -197,7 +197,7 @@ void test10() {
 	Teacher A("jack");
 	cout << "name = " << A.getName() << endl;
 
-	Teacher b = A;
+	Teacher b = A;//浅拷贝，复制指针的值
 	cout << "name = " << b.getName() << endl;
 	//程序结束时，两次释放了name指针，导致异常
 }

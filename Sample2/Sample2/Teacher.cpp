@@ -30,6 +30,19 @@ Teacher::Teacher(int age, const char * resume)
 	m_name = NULL;
 }
 
+Teacher::Teacher(Teacher & t)
+{
+	m_age = t.m_age;
+	if (t.m_name) {
+		int len = strlen(t.m_name);
+		m_name = (char *)malloc(len + 1);
+		strcpy_s(m_name, len + 1, t.m_name);
+	}
+	else {
+		m_name = NULL;
+	}
+}
+
 int Teacher::getAge()
 {
 	return m_age;

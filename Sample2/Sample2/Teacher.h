@@ -10,6 +10,8 @@ public:
 	//Teacher();
 	Teacher(const char *name);
 	Teacher(int age, const char *resume);
+	//显式定义拷贝构造函数进行深拷贝，避免浅拷贝带来的潜在问题
+	Teacher(Teacher &t);
 	int getAge();
 	char *getName();
 	char *getInfo();
