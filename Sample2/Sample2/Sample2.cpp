@@ -187,8 +187,24 @@ void test9() {
 */
 
 
+//6、4 深拷贝和浅拷贝
+/*
+	默认复制构造函数可以完成对象的数据成员简单的赋值
+	对象的成员变量是由指针指示的内存地址，默认复制构造函数仅作复制指针的值
+*/
+
+void test10() {
+	Teacher A("jack");
+	cout << "name = " << A.getName() << endl;
+
+	Teacher b = A;
+	cout << "name = " << b.getName() << endl;
+	//程序结束时，两次释放了name指针，导致异常
+}
+
+
 int main(void) {
 
-	test9();
+	test10();
 	return 0;
 }

@@ -6,6 +6,18 @@
 {
 }*/
 
+Teacher::Teacher(const char * name)
+{
+	if (name) {
+		int len = strlen(name);
+		m_name = (char *)malloc(len + 1);
+		strcpy_s(m_name, len + 1, name);
+	}
+	else {
+		m_name = NULL;
+	}
+}
+
 Teacher::Teacher(int age, const char * resume)
 {
 	int len = strlen(resume);
@@ -15,11 +27,17 @@ Teacher::Teacher(int age, const char * resume)
 
 	// 附加资料指针默认为空
 	m_append = NULL;
+	m_name = NULL;
 }
 
 int Teacher::getAge()
 {
 	return m_age;
+}
+
+char * Teacher::getName()
+{
+	return m_name;
 }
 
 char * Teacher::getInfo()
@@ -56,4 +74,8 @@ Teacher::~Teacher()
 		free(m_append);
 		m_append = NULL;
 	}	
+	if (m_name) {
+		free(m_name);
+		m_name = NULL;
+	}
 }
