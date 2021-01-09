@@ -33,6 +33,16 @@ void Demo::print(void)
 	cout << "m_a = " << m_a << ", m_b = " << m_b << endl;
 }
 
+void Demo::setA(int a)
+{
+	m_a = a;
+}
+
+int Demo::getA()
+{
+	return m_a;
+}
+
 Demo::~Demo()
 {
 	cout << "~Demo()" << endl;

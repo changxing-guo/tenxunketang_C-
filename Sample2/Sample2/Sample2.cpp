@@ -133,8 +133,48 @@ void test8() {
 	c.print();
 }
 
+//浅析默认构造函数
+class Demo1 {
+	int m_a;
+	int m_b;
+	//默认拷贝构造函数会对成员变量执行简单的值拷贝，如果成员变量中有指针怎么办
+	//char *p;
+	
+public :
+	//默认构造函数不会对参数进行初始化，如果不赋值就是调用会编译失败
+
+	//有构造函数，成员变量可以不初始化的，但他的值是随机的
+	Demo1() {};
+	void setA(int a);
+	int getA();
+};
+
+void Demo1::setA(int a)
+{
+	m_a = a;
+}
+
+int Demo1::getA()
+{
+	return m_a;
+}
+
+void test9() {
+	Demo1 d1, d2;
+
+	d1.setA(1);
+	d2.setA(2);
+
+	//使用默认构造函数，对参数值进行拷贝
+	Demo1 d3 = d1;
+
+	cout << d1.getA() << endl;
+	cout << d2.getA() << endl;
+	cout << d3.getA() << endl;
+}
+
 int main(void) {
 
-	test8();
+	test9();
 	return 0;
 }
