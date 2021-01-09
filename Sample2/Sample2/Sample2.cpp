@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Square.h"
 #include "Teacher.h"
+#include "Demo.h"
 
 using namespace std;
 
@@ -38,8 +39,35 @@ void test3() {
 	printf("append is %s\n", t.getAppend());
 }
 
+
+// 构造函数的调用方式和调用
+void test4() {
+	//无参构造函数
+	Demo a;				// 默认构造
+	Demo a1 = Demo();	// 显式的
+	printf("\n");
+
+	//有参构造函数，总共有三种
+	Demo b(1);			//C++编译器默认调用有参构造函数
+	Demo b1(1, 2);
+	printf("\n");
+
+	// "="功能增强，
+	Demo c = 1;			//C++编译器默认调用有参构造函数
+	Demo c1 = (1, 2);	//Demo c1 = 2;相当于表达式，取最后一个值
+	printf("\n");
+
+	Demo d = Demo(1);
+	Demo d1 = Demo(1, 2);
+	printf("\n");
+
+	//赋值构造函数
+	Demo e = d1;
+	printf("\n");
+}
+
 int main(void) {
 
-	test3();
+	test4();
 	return 0;
 }
