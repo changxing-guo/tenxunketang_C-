@@ -24,6 +24,8 @@ public :
 class Demo2_C {
 	int m_a = 1;
 public :
+	static int m_s;
+public :
 	//Demo2_C();
 	~Demo2_C();
 };

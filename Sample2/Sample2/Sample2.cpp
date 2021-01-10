@@ -294,14 +294,14 @@ void test15() {
 	printf("\n");
 
 	//没有默认构造函数或无参构造函数时。可以创建对象数组。可以使用参数列表
-	Demo2_A *d4 = new Demo2_A[2]{(1), (2)};
+	Demo2_A *d4 = new Demo2_A[2]{ (1), (2) };
 	delete[] d4;
 	printf("\n");
 
 	//灵活创建对象，可以先定义指针数组，再逐个创建对象
 	Demo2_B *d5[5];
 	for (int i = 0; i < 5; i++) {
-		d5[i] = new Demo2_B(i, i+1);
+		d5[i] = new Demo2_B(i, i + 1);
 	}
 	for (int i = 0; i < 5; i++) {
 		delete d5[i];
@@ -316,8 +316,46 @@ void test15() {
 	如无法分配空间，new会返回NULL
 */
 
+/*
+静态成员变量
+
+1）定义静态成员变量
+	static关键字
+	一个类的成员为static时，这个类无论有多少个对象被创建，这些对象共享这个一个static成员
+	静态成员局部与类，他不是对象成员
+
+2）静态数据成员初始化
+	静态成员初始化与一般数据成员初始化不同，
+	<数据类型><类名>::<静态数据成员名>=<值>	//静态变量的初始化
+
+3）应用静态数据成员是，采用如下格式
+	<类名>::<静态成员名>	//静态变量的使用方式
+
+	如果创建了对象，也可以用对象来访问
+	<对象名.静态成员名>或<对象->静态成员名>
+
+*/
+//静态变量声明必须在类和方法的外面
+int Demo2_C::m_s = 10;
+void test16() {
+	Demo2_C c;
+	printf("Demo2_C::m_s = %d\n", Demo2_C::m_s);
+	printf("Demo2_C::m_s = %d\n", c.m_s);
+	printf("\n");
+
+	Demo2_C::m_s = 5;
+	printf("Demo2_C::m_s = %d\n", Demo2_C::m_s);
+	printf("Demo2_C::m_s = %d\n", c.m_s);
+	printf("\n");
+	
+	c.m_s = 20;
+	printf("Demo2_C::m_s = %d\n", Demo2_C::m_s);
+	printf("Demo2_C::m_s = %d\n", c.m_s);
+
+}
+
 int main(void) {
 
-	test15();
+	test16();
 	return 0;
 }
