@@ -66,6 +66,12 @@ public:
 
 	//void const setB(int b);
 
+	//友元函数测试
+private :
+	int cost;	//成交价
+	void setCost(int p);
+
+	friend void buyCar(Car *car);
 };
 //c++类本质的实现相当于下面c的实现
 //this就是默认的隐藏参数
@@ -86,4 +92,7 @@ void setPrice(int price);
 //思考：类中添加静态变量。sizeof（类）会不会变大
 //答案，不会，静态成员放在全局变量，不属于类
 int testCarSize();
+
+void buyCar(Car *car);
+
 

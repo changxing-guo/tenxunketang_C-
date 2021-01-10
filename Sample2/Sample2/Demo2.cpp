@@ -122,6 +122,11 @@ void Car::setA(int a) const
 {
 }
 
+void Car::setCost(int p)
+{
+	this->cost = p;
+}
+
 /*void const Car::setB(int b)
 {
 	return nullptr;
@@ -139,4 +144,9 @@ void setPrice(int price)
 int testCarSize()
 {
 	return sizeof(Car);
+}
+
+void buyCar(Car * car)
+{
+	car->setCost(1000);
 }
