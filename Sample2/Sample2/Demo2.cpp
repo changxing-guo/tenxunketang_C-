@@ -118,6 +118,15 @@ void Car::Hello()
 	printf("welcome\n");
 }
 
+void Car::setA(int a) const
+{
+}
+
+/*void const Car::setB(int b)
+{
+	return nullptr;
+}*/
+
 void setCPrice(CCar * cp, int p)
 {
 	cp->m_price = p;

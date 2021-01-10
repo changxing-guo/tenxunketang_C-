@@ -55,9 +55,16 @@ class Car {
 	static int m_test;
 public:
 	int m_price;
+	int m_ctest;
+
 	void setPrice(int price);
 	void setPrice_1(int m_price);
 	void Hello();
+
+	//const修改成员函数,指针指向的值不能变（即类的变量值）
+	void setA(int a) const; // Car_setA(const Car * this, int a);
+
+	//void const setB(int b);
 
 };
 //c++类本质的实现相当于下面c的实现
