@@ -140,8 +140,8 @@ class Demo1 {
 	int m_b;
 	//默认拷贝构造函数会对成员变量执行简单的值拷贝，如果成员变量中有指针怎么办
 	//char *p;
-	
-public :
+
+public:
 	//默认构造函数不会对参数进行初始化，如果不赋值就是调用会编译失败
 
 	//有构造函数，成员变量可以不初始化的，但他的值是随机的
@@ -234,8 +234,90 @@ void test12() {
 	//system("pause");
 }
 
+/*
+6,8 对象的动态建立和释放
+	1、new 和 delete基本用法
+		是运算符，不是函数，因此执行效率高
+
+	2、c++兼容malloc和free，但是建议用户不用malloc和free
+
+*/
+// 分配基础类型
+void test13() {
+	// 以前的方式
+	int *p = (int *)malloc(sizeof(int));
+	*p = 666;
+	free(p);
+
+	int *p1 = new int;
+	int *p2 = new int(10);
+	*p1 = 6666;
+	delete p1;
+	delete p2;
+
+	printf("p1 = %d, p2 = %d\n", *p1, *p2);
+
+}
+//分配数组
+void test14() {
+	int *p = (int *)malloc(sizeof(int) * 10);
+	for (int i = 0; i < 10; i++) {
+		p[i] = i;
+	}
+	free(p);
+
+	int *p1 = new int[10];
+	//删除数组所占的内存比较特别
+	delete[] p1;
+
+	char *p2 = new char[100];
+	delete[] p2;
+}
+
+//分配对象
+void test15() {
+	//new 和delete执行作用域类的对象时，会调用构造和析构函数
+	Demo2_B *d = new Demo2_B(1, 2);
+	delete d;
+	printf("\n");
+
+	// malloc不会调用构造和析构函数，只是分配空间而已
+	Demo2_B *d2 = (Demo2_B *)malloc(sizeof(Demo2_B));
+	free(d2);
+	printf("\n");
+
+	//如果类没有构造函数，可以创建对象数组
+	//如果有构造函数（不带参数），可以创建对象数组
+	//以上这两种情况都可以创建对象数组
+	Demo2_C *d3 = new Demo2_C[10];
+	delete[] d3;
+	printf("\n");
+
+	//没有默认构造函数或无参构造函数时。可以创建对象数组。可以使用参数列表
+	Demo2_A *d4 = new Demo2_A[2]{(1), (2)};
+	delete[] d4;
+	printf("\n");
+
+	//灵活创建对象，可以先定义指针数组，再逐个创建对象
+	Demo2_B *d5[5];
+	for (int i = 0; i < 5; i++) {
+		d5[i] = new Demo2_B(i, i+1);
+	}
+	for (int i = 0; i < 5; i++) {
+		delete d5[i];
+	}
+}
+/*
+	new 和 delete补充
+	分配基本类型可以混用（强烈建议不要混用）
+	malloc不会调用类的构造函数
+	free不会调用类的析构函数
+
+	如无法分配空间，new会返回NULL
+*/
+
 int main(void) {
 
-	test12();
+	test15();
 	return 0;
 }

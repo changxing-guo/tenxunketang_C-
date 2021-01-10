@@ -21,6 +21,13 @@ public :
 	~Demo2_B();
 };
 
+class Demo2_C {
+	int m_a = 1;
+public :
+	//Demo2_C();
+	~Demo2_C();
+};
+
 class Demo2
 {
 public :

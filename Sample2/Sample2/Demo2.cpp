@@ -72,3 +72,12 @@ Demo2_B::~Demo2_B()
 	demoPrint();
 	cout << "~Demo2_B" << endl;
 }
+
+/*Demo2_C::Demo2_C()
+{
+}*/
+
+Demo2_C::~Demo2_C()
+{
+	printf("m_a = %d\n", m_a);
+}
