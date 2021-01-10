@@ -5,7 +5,7 @@ using namespace std;
 
 // 类的成员中又有类的对象的时候的初始化
 // 初始化是是否可以使用变量？可以
-Demo2::Demo2(): m_a(10), m_b(20), m_c(10)
+Demo2::Demo2() : m_a(10), m_b(20), m_c(10)
 {
 	printf("Demo2 \n");
 }
@@ -16,7 +16,7 @@ Demo2::~Demo2()
 	printf("~Demo2 \n");
 }
 
-Demo2_A::Demo2_A(int v): m_c(1)
+Demo2_A::Demo2_A(int v) : m_c(1)
 {
 	m_val = v;
 	printf("Demo2_A m_val = %d\n", m_val);
@@ -38,7 +38,7 @@ Demo2_B::Demo2_B(int _a, int _b)/* : Demo2_B(_a, _b, 666)*/
 	m_a = _a;
 	m_b = _b;
 	cout << "2 m_a = " << _a << " , m_b = " << _b << endl;
-	
+
 	//Demo2_B(_a, _b, 666);//这样会穿件一个隐式对象
 	/*
 	C++中构造函数调用构造函数有两种方法
@@ -51,7 +51,7 @@ Demo2_B::Demo2_B(int _a, int _b)/* : Demo2_B(_a, _b, 666)*/
 	*/
 	this->Demo2_B::Demo2_B(_a, _b, 666);	//第一种
 
-	
+
 }
 
 Demo2_B::Demo2_B(int _a, int _b, int _c)
@@ -76,6 +76,24 @@ Demo2_B::~Demo2_B()
 /*Demo2_C::Demo2_C()
 {
 }*/
+
+Demo2_C * Demo2_C::getInstance()
+{	
+	if (single == NULL) {
+		single = new Demo2_C();
+	}
+	return single;
+}
+
+void Demo2_C::setB(int _b)
+{
+	m_b = _b;
+}
+
+int Demo2_C::getB()
+{
+	return m_b;
+}
 
 Demo2_C::~Demo2_C()
 {

@@ -347,15 +347,52 @@ void test16() {
 	printf("Demo2_C::m_s = %d\n", Demo2_C::m_s);
 	printf("Demo2_C::m_s = %d\n", c.m_s);
 	printf("\n");
-	
+
 	c.m_s = 20;
 	printf("Demo2_C::m_s = %d\n", Demo2_C::m_s);
 	printf("Demo2_C::m_s = %d\n", c.m_s);
 
 }
 
+/*
+类的静态函数和单例模式
+*/
+int Demo2_C::m_b = 100;	//初始化
+
+void test17() {
+	printf("m_B = %d\n", Demo2_C::getB());
+
+	Demo2_C::setB(20);
+	printf("m_B = %d\n", Demo2_C::getB());
+}
+
+//单例模式测试
+Demo2_C * Demo2_C::single = NULL;	//单例模式静态变量初始化
+void test18() {
+	Demo2_C * d1 =  Demo2_C::getInstance();
+	Demo2_C * d2 = Demo2_C::getInstance();
+	d1->setB(6666);	//这个是静态变量，
+	d1->m_d = 1000;	//我们测试下非静态的
+	printf("d1->getB = %d\n", d1->getB());
+	printf("d2->getB = %d\n", d1->getB());
+	printf("d2->m_d = %d\n", d2->m_d);
+	printf("\n");
+
+	d2->setB(8888);
+	d2->m_d = 2000;
+	printf("d1->getB = %d\n", d1->getB());
+	printf("d2->getB = %d\n", d1->getB());
+	printf("d1->m_d = %d\n", d1->m_d);
+	printf("\n");
+
+	//同一个对象
+	printf("d1 %p\n", d1);
+	printf("d2 %p\n", d2);
+}
+
+
 int main(void) {
 
-	test16();
+	test18();
 	return 0;
 }
