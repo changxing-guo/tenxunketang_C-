@@ -51,3 +51,32 @@ public:
 	~Demo2();
 };
 
+class Car {
+	static int m_test;
+public:
+	int m_price;
+	void setPrice(int price);
+	void setPrice_1(int m_price);
+	void Hello();
+
+};
+//c++类本质的实现相当于下面c的实现
+//this就是默认的隐藏参数
+
+struct  CCar
+{
+	int m_price;
+};
+void setCPrice(struct CCar * cp, int p);
+
+//思考：既然类中的方法会重新定义，假如我们在外部定义相同的方法会报错吗？
+void setPrice(int price);
+
+//答案：不会
+//G++编译器会默认将类中的setPrice_1改为Car_setPrice_1
+//编译后已经没有setPrice_1()方法。所以在类外面可以重新定义相同的
+
+//思考：类中添加静态变量。sizeof（类）会不会变大
+//答案，不会，静态成员放在全局变量，不属于类
+int testCarSize();
+

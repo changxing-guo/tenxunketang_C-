@@ -78,7 +78,7 @@ Demo2_B::~Demo2_B()
 }*/
 
 Demo2_C * Demo2_C::getInstance()
-{	
+{
 	if (single == NULL) {
 		single = new Demo2_C();
 	}
@@ -98,4 +98,36 @@ int Demo2_C::getB()
 Demo2_C::~Demo2_C()
 {
 	printf("m_a = %d\n", m_a);
+}
+
+void Car::setPrice(int price)
+{
+	this->m_price = price;
+	this->Hello();
+}
+
+//这种情况下，如果形参和定义的变量名一致，一定要加this，
+//负责下面的变量都表示方法名中的形参变量（与作用域有关）
+void Car::setPrice_1(int m_price)
+{
+	this->m_price = m_price;
+}
+
+void Car::Hello()
+{
+	printf("welcome\n");
+}
+
+void setCPrice(CCar * cp, int p)
+{
+	cp->m_price = p;
+}
+
+void setPrice(int price)
+{
+}
+
+int testCarSize()
+{
+	return sizeof(Car);
 }

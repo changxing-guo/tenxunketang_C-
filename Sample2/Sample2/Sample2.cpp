@@ -369,7 +369,7 @@ void test17() {
 //单例模式测试
 Demo2_C * Demo2_C::single = NULL;	//单例模式静态变量初始化
 void test18() {
-	Demo2_C * d1 =  Demo2_C::getInstance();
+	Demo2_C * d1 = Demo2_C::getInstance();
 	Demo2_C * d2 = Demo2_C::getInstance();
 	d1->setB(6666);	//这个是静态变量，
 	d1->m_d = 1000;	//我们测试下非静态的
@@ -390,9 +390,30 @@ void test18() {
 	printf("d2 %p\n", d2);
 }
 
+/*
+this 指针及其本质
+*/
+void test19() {
+	Car c;
+	c.setPrice(10000);
+
+	//思考。这样调用为什么不会出问题？
+	//因为这个方法没有用到this，bmv本质是this
+	Car *bmw = NULL;
+	bmw->Hello();
+
+	//c++的本质就是CCar的实现
+	CCar cc;
+	setCPrice(&cc, 20000);
+	printf("cc price = %d\n", cc.m_price);
+
+	//测试思考：类中添加静态变量。sizeof（类）会不会变大
+	int size = testCarSize();
+	printf("car sizeof = %d\n", size);
+}
 
 int main(void) {
 
-	test18();
+	test19();
 	return 0;
 }
