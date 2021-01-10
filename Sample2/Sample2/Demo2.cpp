@@ -1,6 +1,7 @@
 ﻿#include "Demo2.h"
 #include <iostream>
 
+using namespace std;
 
 // 类的成员中又有类的对象的时候的初始化
 // 初始化是是否可以使用变量？可以
@@ -29,4 +30,45 @@ int Demo2_A::getValue()
 Demo2_A::~Demo2_A()
 {
 	printf("~Demo2_A m_val = %d\n", m_val);
+}
+
+//参数列表调用构造函数
+Demo2_B::Demo2_B(int _a, int _b)/* : Demo2_B(_a, _b, 666)*/
+{
+	m_a = _a;
+	m_b = _b;
+	cout << "2 m_a = " << _a << " , m_b = " << _b << endl;
+	
+	//Demo2_B(_a, _b, 666);//这样会穿件一个隐式对象
+	/*
+	C++中构造函数调用构造函数有两种方法
+		1、使用this指针
+		2、参数列表
+
+	总结，调用顺序不同
+		1、this 先调用两个参数的，在调用三个参数的
+		2、参数列表反之
+	*/
+	this->Demo2_B::Demo2_B(_a, _b, 666);	//第一种
+
+	
+}
+
+Demo2_B::Demo2_B(int _a, int _b, int _c)
+{
+	m_a = _a;
+	m_b = _b;
+	m_c = _c;
+	printf("3 m_a = %d, m_b = %d, m_c = %d\n", m_a, m_b, m_c);
+}
+
+void Demo2_B::demoPrint()
+{
+	printf(" m_a = %d, m_b = %d, m_c = %d\n", m_a, m_b, m_c);
+}
+
+Demo2_B::~Demo2_B()
+{
+	demoPrint();
+	cout << "~Demo2_B" << endl;
 }

@@ -228,8 +228,14 @@ void test11() {
 	printf("d2.a = %d, d2.b = %d\n", d2.m_a.getValue(), d2.m_b.getValue());
 }
 
+// 构造函数中调用构造函数
+void test12() {
+	Demo2_B(1, 2);
+	//system("pause");
+}
+
 int main(void) {
 
-	test11();
+	test12();
 	return 0;
 }

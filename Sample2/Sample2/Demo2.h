@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 class Demo2_A {
 	int m_val = 10;
@@ -7,6 +7,18 @@ public :
 	Demo2_A(int v);
 	int getValue();
 	~Demo2_A();
+};
+
+class Demo2_B {
+	int m_a;
+	int m_b;
+	int m_c;
+
+public :
+	Demo2_B(int _a, int _b);
+	Demo2_B(int _a, int _b, int _c);
+	void demoPrint();
+	~Demo2_B();
 };
 
 class Demo2
