@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 class Demo
 {
 	int m_a;
@@ -8,7 +8,7 @@ public:
 	Demo();
 	Demo(int a);
 	Demo(int a, int b);
-	//¸³Öµ¹¹Ôìº¯Êý
+	//èµ‹å€¼æž„é€ å‡½æ•°
 	Demo(const Demo &obj);
 	void print(void);
 	void setA(int a);

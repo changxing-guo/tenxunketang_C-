@@ -1,19 +1,19 @@
-#include "Square.h"
+ï»¿#include "Square.h"
 #include <iostream>
 
 Square::Square()
 {
-	printf("ÕâÊÇSquare¹¹Ôìº¯Êı\n");
+	printf("è¿™æ˜¯Squareæ„é€ å‡½æ•°\n");
 }
 
 Square::Square(int p)
 {
-	printf("ÕâÊÇSquare¹¹Ôìº¯Êı p = %d\n", p);
+	printf("è¿™æ˜¯Squareæ„é€ å‡½æ•° p = %d\n", p);
 }
 
 Square::~Square()
 {
-	printf("ÕâÊÇSquareÎö¹¹º¯Êı\n");
+	printf("è¿™æ˜¯Squareææ„å‡½æ•°\n");
 }
 
 void Square::setLength(int len)

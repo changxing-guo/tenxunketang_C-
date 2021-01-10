@@ -1,16 +1,16 @@
-#pragma once
+ï»¿#pragma once
 class Teacher
 {
-	int m_age;		// ÄêÁä
-	char *m_name;	// ĞÕÃû
-	char *m_resume;	// ĞÅÏ¢
-	char *m_append;	// ¸½¼Ó×ÊÁÏ
+	int m_age;		// å¹´é¾„
+	char *m_name;	// å§“å
+	char *m_resume;	// ä¿¡æ¯
+	char *m_append;	// é™„åŠ èµ„æ–™
 
 public:
 	//Teacher();
 	Teacher(const char *name);
 	Teacher(int age, const char *resume);
-	//ÏÔÊ½¶¨Òå¿½±´¹¹Ôìº¯Êı½øĞĞÉî¿½±´£¬±ÜÃâÇ³¿½±´´øÀ´µÄÇ±ÔÚÎÊÌâ
+	//æ˜¾å¼å®šä¹‰æ‹·è´æ„é€ å‡½æ•°è¿›è¡Œæ·±æ‹·è´ï¼Œé¿å…æµ…æ‹·è´å¸¦æ¥çš„æ½œåœ¨é—®é¢˜
 	Teacher(Teacher &t);
 	int getAge();
 	char *getName();

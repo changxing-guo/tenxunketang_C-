@@ -1,4 +1,4 @@
-#include "point.h"
+﻿#include "point.h"
 
 void point::setPosition(int _x, int _y)
 {

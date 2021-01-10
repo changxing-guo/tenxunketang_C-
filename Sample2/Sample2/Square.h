@@ -1,35 +1,35 @@
-#pragma once
+ï»¿#pragma once
 #include "point.h"
 
 class Square
 {
 private:
-	int m_x;			//Õý·½ÐÎ×óÏÂ·½µÄx×ø±ê
-	int m_y;			//Õý·½ÐÎ×óÏÂ·½µÄy×ø±ê
-	int m_length;		//Õý·½ÐÎµÄ±ß³¤
+	int m_x;			//æ­£æ–¹å½¢å·¦ä¸‹æ–¹çš„xåæ ‡
+	int m_y;			//æ­£æ–¹å½¢å·¦ä¸‹æ–¹çš„yåæ ‡
+	int m_length;		//æ­£æ–¹å½¢çš„è¾¹é•¿
 
 public:
 	/*
-	ÓÐ¹Ø¹¹Ôìº¯Êý
-	£¨1£©¹¹Ôìº¯Êý¶¨Òå¼°Ê¹ÓÃ
-		1£©ÓëÀàÃûÏàÍ¬
-		2£©¶¨ÒåÊÇ¿ÉÒÔÓÐ²ÎÊý
-		3£©Ã»ÓÐÈÎºÎ·µ»ØÀàÐÍµÄÉùÃ÷
-	£¨2£©¹¹Ôìº¯ÊýµÄ×÷ÓÃ
-		1£©×Ô¶¯µ÷ÓÃ
-		2£©ÔÚÒ»Ð©Çé¿öÏÂÔòÐèÒªÊÖ¶¯µ÷ÓÃ¹¹Ôìº¯Êý
+	æœ‰å…³æž„é€ å‡½æ•°
+	ï¼ˆ1ï¼‰æž„é€ å‡½æ•°å®šä¹‰åŠä½¿ç”¨
+		1ï¼‰ä¸Žç±»åç›¸åŒ
+		2ï¼‰å®šä¹‰æ˜¯å¯ä»¥æœ‰å‚æ•°
+		3ï¼‰æ²¡æœ‰ä»»ä½•è¿”å›žç±»åž‹çš„å£°æ˜Ž
+	ï¼ˆ2ï¼‰æž„é€ å‡½æ•°çš„ä½œç”¨
+		1ï¼‰è‡ªåŠ¨è°ƒç”¨
+		2ï¼‰åœ¨ä¸€äº›æƒ…å†µä¸‹åˆ™éœ€è¦æ‰‹åŠ¨è°ƒç”¨æž„é€ å‡½æ•°
 
-	ÓÐ¹ØÎö¹¹º¯Êý
-	£¨3£©Îö¹¹º¯Êý¶¨Òå¼°Ê¹ÓÃ
-		1£©¶¨Òå
-		2£©¹¹Ôìº¯ÊýÃ»ÓÐ²ÎÊýÒ²Ã»ÓÐ·µ»ØÀàÐÍµÄÉùÃ÷
-		3£©Îö¹¹º¯ÊýÔÚ¶ÔÏóÏú»ÙÊ±×Ô¶¯±»µ÷ÓÃ
-	£¨4£©Îö¹¹º¯Êýµ÷ÓÃ»úÖÆ
-		c++±àÒëÆ÷×Ô¶¯µ÷ÓÃ
+	æœ‰å…³æžæž„å‡½æ•°
+	ï¼ˆ3ï¼‰æžæž„å‡½æ•°å®šä¹‰åŠä½¿ç”¨
+		1ï¼‰å®šä¹‰
+		2ï¼‰æž„é€ å‡½æ•°æ²¡æœ‰å‚æ•°ä¹Ÿæ²¡æœ‰è¿”å›žç±»åž‹çš„å£°æ˜Ž
+		3ï¼‰æžæž„å‡½æ•°åœ¨å¯¹è±¡é”€æ¯æ—¶è‡ªåŠ¨è¢«è°ƒç”¨
+	ï¼ˆ4ï¼‰æžæž„å‡½æ•°è°ƒç”¨æœºåˆ¶
+		c++ç¼–è¯‘å™¨è‡ªåŠ¨è°ƒç”¨
 	*/
 	Square();
 	Square(int p);
-	// Îö¹¹º¯ÊýÓÀÔ¶²»ÄÜ´ø²ÎÊý
+	// æžæž„å‡½æ•°æ°¸è¿œä¸èƒ½å¸¦å‚æ•°
 	~Square();
 
 	void setLength(int len);
@@ -38,7 +38,7 @@ public:
 	int getPositionX();
 	int getPositionY();
 
-	// ÅÐ¶ÏµãÊÇ·ñÔÚ´ËÕý·½ÐÎÄÚ²¿
+	// åˆ¤æ–­ç‚¹æ˜¯å¦åœ¨æ­¤æ­£æ–¹å½¢å†…éƒ¨
 	bool isContain(point &p);
 };
 

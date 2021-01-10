@@ -1,4 +1,4 @@
-#include "Teacher.h"
+ï»¿#include "Teacher.h"
 #include <iostream>
 
 
@@ -25,7 +25,7 @@ Teacher::Teacher(int age, const char * resume)
 	m_resume = (char *)malloc(len + 1);
 	strcpy_s(m_resume, len + 1 , resume);
 
-	// ¸½¼Ó×ÊÁÏÖ¸ÕëÄ¬ÈÏÎª¿Õ
+	// é™„åŠ èµ„æ–™æŒ‡é’ˆé»˜è®¤ä¸ºç©º
 	m_append = NULL;
 	m_name = NULL;
 }
@@ -60,7 +60,7 @@ char * Teacher::getInfo()
 
 void Teacher::setAppend(const char * text)
 {
-	// ´Ëº¯Êı¿ÉÄÜµ÷ÓÃ¶à´Î£¬Îª·ÀÖ¹ÄÚ´æĞ¹Â©£¬µ÷ÓÃµÄÊ±ºòÏÈfree
+	// æ­¤å‡½æ•°å¯èƒ½è°ƒç”¨å¤šæ¬¡ï¼Œä¸ºé˜²æ­¢å†…å­˜æ³„æ¼ï¼Œè°ƒç”¨çš„æ—¶å€™å…ˆfree
 	if (m_append) {
 		free(m_append);
 	}
