@@ -2,6 +2,7 @@
 #include "Square.h"
 #include "Teacher.h"
 #include "Demo.h"
+#include "Demo2.h"
 
 using namespace std;
 
@@ -209,9 +210,26 @@ void test10() {
 		默认的=号等同于浅拷贝
 */
 
+//构造函数初始化列表
+/*
+1、为什么要有初始化列表
+	1.1
+	如果我们有一个类成员，它本身是一个类或者一个结构，而且这个成员只有一个带参数的构造函数，没有默认构造函数
+	这时要对这个类成员进行初始化，就必须调用这个类成员的带参数的构造函数
+
+	如果没有初始化列表，那么直接报错
+
+	1.2
+	类成员中有const修改，必须在对象初始化的时候，就给此变量赋值
+	当类成员中哪有一个const对象时，或者是一个引用时，他们也必须通过成员初始化列表进行初始化
+*/
+void test11() {
+	Demo2 d2;
+	printf("d2.a = %d, d2.b = %d\n", d2.m_a.getValue(), d2.m_b.getValue());
+}
 
 int main(void) {
 
-	test10();
+	test11();
 	return 0;
 }
