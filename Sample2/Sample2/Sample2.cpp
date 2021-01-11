@@ -422,8 +422,21 @@ void test19() {
 	打破类的封装，为外部接口留下一个便捷的接口
 */
 
+/*
+友元类
+	若B类是A类的友元类，则B类的所有成员函数都是A类的成员函数
+	友元类通常涉及为一种对数据操作或类之间传递消息的辅助类
+*/
+void test20() {
+	SaleCar sc;
+	cout << "sc.price = " << sc.getPrice() << endl;
+
+	sc.buyCar();
+	cout << "sc.price = " << sc.getCost() << endl;
+}
+
 int main(void) {
 
-	test19();
+	test20();
 	return 0;
 }

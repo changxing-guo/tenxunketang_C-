@@ -72,6 +72,7 @@ private :
 	void setCost(int p);
 
 	friend void buyCar(Car *car);
+	friend class SaleCar;
 };
 //c++类本质的实现相当于下面c的实现
 //this就是默认的隐藏参数
@@ -94,5 +95,19 @@ void setPrice(int price);
 int testCarSize();
 
 void buyCar(Car *car);
+
+class SaleCar {
+public :
+	SaleCar();
+	void buyCar();
+	int getPrice();
+	int getCost();
+private :
+	Car qq;
+};
+
+class BuyCar {
+
+};
 
 

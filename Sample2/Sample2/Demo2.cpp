@@ -150,3 +150,23 @@ void buyCar(Car * car)
 {
 	car->setCost(1000);
 }
+
+void SaleCar::buyCar()
+{
+	qq.setCost(500);
+}
+
+int SaleCar::getPrice()
+{
+	return qq.m_price;
+}
+
+SaleCar::SaleCar()
+{
+	qq.setPrice(1000);
+}
+
+int SaleCar::getCost() 
+{
+	return qq.cost;
+}
