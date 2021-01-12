@@ -475,8 +475,18 @@ void test22() {
 	c5.display();
 }
 
+//重载一元运算符之成员函数方式
+void test23() {
+	Time t1(22, 31, 59);
+	
+	++t1;
+	t1.display();
+
+}
+
+
 int main(void) {
 
-	test22();
+	test23();
 	return 0;
 }

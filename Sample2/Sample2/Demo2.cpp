@@ -239,3 +239,37 @@ void Complex::display()
 {
 	printf("real = %lf, image = %lf\n\n", m_real, m_image);
 }
+
+Time::Time()
+{
+}
+
+Time::Time(int hour, int minute, int second) :
+	hour_(hour), minute_(minute), second_(second)
+{
+}
+
+Time Time::operator ++()
+{
+	this->second_++;
+	if (this->second_ >= 60)
+	{
+		second_ = 0;
+		minute_++;
+		if (minute_ >= 60)
+		{
+			minute_ = 0;
+			hour_++;
+			if (hour_ >= 24)
+			{
+				hour_ = 0;
+			}
+		}
+	}
+	return (*this);
+}
+
+void Time::display()
+{
+	cout << hour_ << " : " << minute_ << " : " << second_ << endl;
+}

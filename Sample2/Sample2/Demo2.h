@@ -147,4 +147,21 @@ public:
 	void display();
 };
 
+//重载一元运算符之成员函数方式
+class Time
+{
+private :
+	int hour_;
+	int minute_;
+	int second_;
+
+public :
+	Time();
+	Time(int hour, int minute, int second);
+
+	//秒自增 ++time;
+	Time operator ++();
+	void display();
+};
+
 
