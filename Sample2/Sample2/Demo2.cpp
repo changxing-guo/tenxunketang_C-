@@ -188,7 +188,33 @@ Complex Complex::operator+(const Complex & c)
 	return Complex(m_real + c.m_real, m_image + c.m_image);
 }
 
+Complex Complex::operator-(const Complex & c)
+{
+	cout << "Complex::operator-" << endl;
+	return Complex(m_real - c.m_real, m_image - c.m_image);
+}
+
+Complex Complex::operator*(const Complex & c)
+{
+	cout << "Complex::operator*" << endl;
+	Complex tmp(0, 0);
+	tmp.m_real = this->m_real * c.m_real - this->m_image * c.m_image;
+	tmp.m_real = this->m_real * c.m_image - this->m_image * c.m_real;
+	return tmp;
+}
+
+Complex Complex::operator/(const Complex & c)
+{
+	cout << "Complex::operator/" << endl;
+	Complex tmp(0, 0);
+	double x;
+	x = 1 / (c.m_real * c.m_real + c.m_image * c.m_image);
+	tmp.m_real = x*(this->m_real * c.m_real + this->m_image * c.m_image);
+	tmp.m_image = x *(this->m_real * c.m_image - this->m_image * c.m_real);
+	return tmp;
+}
+
 void Complex::display()
 {
-	printf("real = %lf, image = %lf\n", m_real, m_image);
+	printf("real = %lf, image = %lf\n\n", m_real, m_image);
 }

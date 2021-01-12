@@ -121,6 +121,9 @@ public:
 	Complex add(const Complex &c);
 
 	Complex operator +(const Complex &c);
+	Complex operator -(const Complex &c);
+	Complex operator *(const Complex &c);
+	Complex operator /(const Complex &c);
 	void display();
 };
 

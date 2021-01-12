@@ -438,7 +438,7 @@ void test20() {
 /*
 什么是运算符重载
 */
-
+//重载二元运算符之成员函数方式
 void test21() {
 	Complex c1(1, 1);
 	Complex c2(2, 2);
@@ -447,6 +447,15 @@ void test21() {
 
 	Complex c4 = c3 + c2;
 	c4.display();
+
+	Complex c5 = c4 - c1;
+	c5.display();
+
+	Complex c6 = c5 * c4;
+	c6.display();
+
+	Complex c7 = c5 / c4;
+	c7.display();
 
 }
 
