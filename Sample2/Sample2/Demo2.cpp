@@ -171,6 +171,10 @@ int SaleCar::getCost()
 	return qq.cost;
 }
 
+Complex::Complex()
+{
+}
+
 //运算符重载
 Complex::Complex(double real, double image) :
 	m_real(real), m_image(image)
@@ -212,6 +216,23 @@ Complex Complex::operator/(const Complex & c)
 	tmp.m_real = x*(this->m_real * c.m_real + this->m_image * c.m_image);
 	tmp.m_image = x *(this->m_real * c.m_image - this->m_image * c.m_real);
 	return tmp;
+}
+
+Complex Complex::operator +(const double real)
+{
+	return Complex(this->m_real + real, this->m_image);
+}
+
+Complex operator+(Complex & c1, Complex & c2)
+{
+	cout << "frind operator + be called" << endl;
+
+	return Complex(c1.m_real + c2.m_real, c1.m_image + c2.m_image);
+}
+
+Complex operator +(const double real, Complex &c)
+{
+	return Complex(real + c.m_real, c.m_image);
 }
 
 void Complex::display()

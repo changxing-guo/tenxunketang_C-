@@ -459,8 +459,24 @@ void test21() {
 
 }
 
+//二元运算符之友元函数
+void test22() {
+
+	Complex c1(1, 2);
+	Complex c2(2, 3);
+
+	Complex c3 = c1 + c2;
+	c3.display();
+
+	Complex c4 = c1 + 6;
+	c4.display();
+
+	Complex c5 = 6 + c2;
+	c5.display();
+}
+
 int main(void) {
 
-	test21();
+	test22();
 	return 0;
 }

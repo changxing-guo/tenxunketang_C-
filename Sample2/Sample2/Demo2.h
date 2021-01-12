@@ -117,6 +117,7 @@ public:
 	double m_real;
 	double m_image;
 
+	Complex();
 	Complex(double real, double image);
 	Complex add(const Complex &c);
 
@@ -124,6 +125,25 @@ public:
 	Complex operator -(const Complex &c);
 	Complex operator *(const Complex &c);
 	Complex operator /(const Complex &c);
+
+	Complex operator +(const double real);
+
+	//二元运算符之友元函数
+	//作为友元函数重载
+	/*
+	1、关于友元函数运算符
+	-为了实现类对象的各种运算，除了将运算符重载为类的成员函数外，还可以将它重载为类的友元函数
+	-在有些情况下，只有将运算符重载为类的友元函数才能解决某些问题
+	Complex a, b(2.3:
+	a = b + 2;
+	a = a + b;
+
+	2、重载二元运算符为类的友元函数时需要两个参数
+	friend T1 operate (T2 a, T3 b);
+	*/
+	friend Complex operator +(Complex &c1, Complex &c2);
+	friend Complex operator +(const double real, Complex &c);
+
 	void display();
 };
 
