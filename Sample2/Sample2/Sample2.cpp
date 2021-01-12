@@ -435,8 +435,23 @@ void test20() {
 	cout << "sc.price = " << sc.getCost() << endl;
 }
 
+/*
+什么是运算符重载
+*/
+
+void test21() {
+	Complex c1(1, 1);
+	Complex c2(2, 2);
+	Complex c3 = c1.add(c2);
+	c3.display();
+
+	Complex c4 = c3 + c2;
+	c4.display();
+
+}
+
 int main(void) {
 
-	test20();
+	test21();
 	return 0;
 }

@@ -166,7 +166,29 @@ SaleCar::SaleCar()
 	qq.setPrice(1000);
 }
 
-int SaleCar::getCost() 
+int SaleCar::getCost()
 {
 	return qq.cost;
+}
+
+//运算符重载
+Complex::Complex(double real, double image) :
+	m_real(real), m_image(image)
+{
+}
+
+Complex Complex::add(const Complex & c)
+{
+	return Complex(m_real + c.m_real, m_image + c.m_image);
+}
+
+Complex Complex::operator+(const Complex & c)
+{
+	cout << "Complex::operator+" << endl;
+	return Complex(m_real + c.m_real, m_image + c.m_image);
+}
+
+void Complex::display()
+{
+	printf("real = %lf, image = %lf\n", m_real, m_image);
 }

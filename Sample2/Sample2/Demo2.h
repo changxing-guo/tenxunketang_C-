@@ -67,7 +67,7 @@ public:
 	//void const setB(int b);
 
 	//友元函数测试
-private :
+private:
 	int cost;	//成交价
 	void setCost(int p);
 
@@ -97,17 +97,31 @@ int testCarSize();
 void buyCar(Car *car);
 
 class SaleCar {
-public :
+public:
 	SaleCar();
 	void buyCar();
 	int getPrice();
 	int getCost();
-private :
+private:
 	Car qq;
 };
 
 class BuyCar {
 
+};
+
+//运算符重载
+class Complex {
+
+public:
+	double m_real;
+	double m_image;
+
+	Complex(double real, double image);
+	Complex add(const Complex &c);
+
+	Complex operator +(const Complex &c);
+	void display();
 };
 
 
