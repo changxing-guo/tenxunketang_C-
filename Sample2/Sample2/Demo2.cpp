@@ -273,3 +273,38 @@ void Time::display()
 {
 	cout << hour_ << " : " << minute_ << " : " << second_ << endl;
 }
+
+
+Time_F::Time_F()
+{
+}
+
+Time_F::Time_F(int hour, int minute, int second) :
+	hour_(hour), minute_(minute), second_(second)
+{
+}
+
+void operator++(Time_F & t)
+{
+	t.second_++;
+	if (t.second_ >= 60)
+	{
+		t.second_ = 0;
+		t.minute_++;
+		if (t.minute_ >= 60)
+		{
+			t.minute_ = 0;
+			t.hour_++;
+			if (t.hour_ >= 24)
+			{
+				t.hour_ = 0;
+			}
+		}
+	}
+}
+
+void Time_F::display()
+{
+	cout << hour_ << " : " << minute_ << " : " << second_ << endl;
+}
+

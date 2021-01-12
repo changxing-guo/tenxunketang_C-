@@ -478,7 +478,16 @@ void test22() {
 //重载一元运算符之成员函数方式
 void test23() {
 	Time t1(22, 31, 59);
-	
+
+	++t1;
+	t1.display();
+
+}
+
+//重载一元运算符之友元函数方式
+void test24() {
+	Time_F t1(22, 31, 59);
+
 	++t1;
 	t1.display();
 
@@ -487,6 +496,6 @@ void test23() {
 
 int main(void) {
 
-	test23();
+	test24();
 	return 0;
 }
