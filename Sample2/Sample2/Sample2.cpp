@@ -525,8 +525,21 @@ void test27() {
 }
 //程序结束后多次释放同一块内存，会导致程序异常
 
+
+void test28() {
+	String_A s1("jack");
+	s1.print();
+
+	{
+		String_A s2("hello");
+		s2 = s1;
+		s2.print();
+	}
+	s1.print();
+	//system("pause");
+}
 int main(void) {
 
-	test27();
+	test28();
 	return 0;
 }

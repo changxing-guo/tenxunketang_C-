@@ -196,4 +196,16 @@ private :
 	int m_len;
 };
 
-
+//特殊运算符重载之赋值运算符=
+class String_A
+{
+public:
+	String_A(char *s);
+	~String_A();
+	void print();
+	//一般只有成员变量指向malloc或者new申请的内存才考虑是否需要重载赋值运算符
+	String_A &operator =(const String_A &s);
+private:
+	char *m_ptr;
+	int m_len;
+};

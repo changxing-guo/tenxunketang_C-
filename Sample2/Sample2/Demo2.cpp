@@ -358,7 +358,7 @@ String::String(char * s) :
 	strcpy_s(m_ptr, m_len, s);
 }
 
-String::~String() 
+String::~String()
 {
 	delete[] m_ptr;
 	cout << "~~~~" << endl;
@@ -367,4 +367,42 @@ String::~String()
 void String::print()
 {
 	printf("%s\n", m_ptr);
+}
+
+
+String_A::String_A(char * s) :
+	m_ptr(NULL)
+{
+	int len = strlen(s);
+	m_len = len + 1;
+	m_ptr = new char[m_len];//new是申请内存，后面是一个m_len字节的char类型数组
+
+	strcpy_s(m_ptr, m_len, s);
+}
+
+String_A::~String_A()
+{
+	delete[] m_ptr;
+	cout << "~~~~" << endl;
+}
+
+void String_A::print()
+{
+	printf("%s\n", m_ptr);
+}
+
+String_A & String_A::operator=(const String_A & s)
+{
+	cout << "======" << endl;
+	if (this == &s) {
+		return (*this);
+	}
+	if (!m_ptr) {
+		delete[] m_ptr;
+	}
+	m_len = strlen(s.m_ptr) + 1;
+	m_ptr = new char[m_len];
+	strcpy_s(m_ptr, m_len, s.m_ptr);
+	return (*this);
+
 }
