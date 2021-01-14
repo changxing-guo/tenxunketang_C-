@@ -161,6 +161,8 @@ public:
 
 	//秒自增 ++time;
 	Time operator ++();
+	Time operator ++(int);
+
 	void display();
 };
 
@@ -178,6 +180,7 @@ public:
 
 	//秒自增 ++time;
 	friend void operator ++(Time_F &t);
+	friend void operator --(Time_F &t, int);
 	void display();
 };
 

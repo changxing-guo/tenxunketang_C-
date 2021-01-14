@@ -269,6 +269,27 @@ Time Time::operator ++()
 	return (*this);
 }
 
+Time Time::operator++(int)
+{
+	Time t = *this;
+	this->second_++;
+	if (this->second_ >= 60)
+	{
+		second_ = 0;
+		minute_++;
+		if (minute_ >= 60)
+		{
+			minute_ = 0;
+			hour_++;
+			if (hour_ >= 24)
+			{
+				hour_ = 0;
+			}
+		}
+	}
+	return t;
+}
+
 void Time::display()
 {
 	cout << hour_ << " : " << minute_ << " : " << second_ << endl;
@@ -285,6 +306,25 @@ Time_F::Time_F(int hour, int minute, int second) :
 }
 
 void operator++(Time_F & t)
+{
+	t.second_++;
+	if (t.second_ >= 60)
+	{
+		t.second_ = 0;
+		t.minute_++;
+		if (t.minute_ >= 60)
+		{
+			t.minute_ = 0;
+			t.hour_++;
+			if (t.hour_ >= 24)
+			{
+				t.hour_ = 0;
+			}
+		}
+	}
+}
+
+void operator--(Time_F & t, int)
 {
 	t.second_++;
 	if (t.second_ >= 60)

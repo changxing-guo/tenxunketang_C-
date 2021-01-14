@@ -493,9 +493,25 @@ void test24() {
 
 }
 
+void test25() {
+	Time t1(22, 31, 59);
+	Time t2 = t1++;
+	t2.display();
+	t1.display();
+
+}
+
+void test26() {
+	Time_F t1(22, 31, 59);
+	t1--;
+	t1.display();
+
+
+}
+
 
 int main(void) {
 
-	test24();
+	test26();
 	return 0;
 }
