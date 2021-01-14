@@ -538,8 +538,32 @@ void test28() {
 	s1.print();
 	//system("pause");
 }
-int main(void) {
 
-	test28();
+void test29()
+{
+	cout << "s1 test\n";
+	String_A s1("jack");
+	s1.print();
+
+	cout << "\ns2 test\n";
+	String_A s2(s1);
+	s2.print();
+
+	//此操作相当于拷贝构造函数
+	cout << "\ns3 test\n";
+	String_A s3 = s1;//虽然有=，但是s3是新生成的，所以他调用的还是拷贝构造函数
+	s3.print();
+
+	cout << "\ns4 test\n";
+	//如果你要使用赋值函数，则需要不能在声明变量的同时直接赋值
+	String_A s4("hello");
+	s4 = s1;
+	s4.print();
+}
+
+int main(void)
+{
+
+	test29();
 	return 0;
 }

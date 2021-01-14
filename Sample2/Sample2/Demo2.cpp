@@ -360,7 +360,8 @@ String::String(char * s) :
 
 String::~String()
 {
-	delete[] m_ptr;
+	if (m_ptr)
+		delete[] m_ptr;
 	cout << "~~~~" << endl;
 }
 
@@ -380,20 +381,24 @@ String_A::String_A(char * s) :
 	strcpy_s(m_ptr, m_len, s);
 }
 
-String_A::~String_A()
-{
-	delete[] m_ptr;
-	cout << "~~~~" << endl;
-}
-
 void String_A::print()
 {
 	printf("%s\n", m_ptr);
 }
 
+String_A::String_A(String_A & other) :
+	m_ptr(NULL),
+	m_len(0)
+{
+	cout << "拷贝重载函数" << endl;
+	m_len = strlen(other.m_ptr) + 1;
+	m_ptr = new char[m_len];
+	strcpy_s(m_ptr, m_len, other.m_ptr);
+}
+
 String_A & String_A::operator=(const String_A & s)
 {
-	cout << "======" << endl;
+	cout << "赋值运算符重载" << endl;
 	if (this == &s) {
 		return (*this);
 	}
@@ -404,5 +409,11 @@ String_A & String_A::operator=(const String_A & s)
 	m_ptr = new char[m_len];
 	strcpy_s(m_ptr, m_len, s.m_ptr);
 	return (*this);
+}
 
+String_A::~String_A()
+{
+	if (m_ptr)
+		delete[] m_ptr;
+	//cout << "~~~~" << endl;
 }

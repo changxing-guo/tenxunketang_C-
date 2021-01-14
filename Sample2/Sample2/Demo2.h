@@ -185,27 +185,42 @@ public:
 };
 
 //特殊运算符重载之赋值运算符= 异常原因分析
-class String 
+class String
 {
-public :
+public:
 	String(char *s);
 	~String();
 	void print();
-private :
-	char *m_ptr;
-	int m_len;
-};
-
-//特殊运算符重载之赋值运算符=
-class String_A
-{
-public:
-	String_A(char *s);
-	~String_A();
-	void print();
-	//一般只有成员变量指向malloc或者new申请的内存才考虑是否需要重载赋值运算符
-	String_A &operator =(const String_A &s);
 private:
 	char *m_ptr;
 	int m_len;
 };
+
+//特殊运算符重载之赋值运算符=（2）
+class String_A
+{
+public:
+	String_A(char *s);
+	void print();
+	//拷贝构造函数
+	String_A(String_A &other);
+	//一般只有成员变量指向malloc或者new申请的内存才考虑是否需要重载赋值运算符
+	String_A &operator =(const String_A &s);
+	~String_A();
+private:
+	char *m_ptr;
+	int m_len;
+};
+
+//特殊运算符重载之赋值运算符=（3）,重载的小技巧
+/*
+	将operator设置为private可以阻止对象赋值；
+	在operator-实现中药检查自赋值
+		if (this -- &obj)
+			return (*this);
+	拷贝构造函数与赋值运算符的区别
+		拷贝构造函数要创建一个新对象
+		赋值预算符则是改变一个已存在的对象的值
+
+	注意：使用了=，未必就会调用赋值运算符重载。（声明）
+*/
