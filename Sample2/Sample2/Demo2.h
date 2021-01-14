@@ -184,4 +184,16 @@ public:
 	void display();
 };
 
+//特殊运算符重载之赋值运算符= 异常原因分析
+class String 
+{
+public :
+	String(char *s);
+	~String();
+	void print();
+private :
+	char *m_ptr;
+	int m_len;
+};
+
 

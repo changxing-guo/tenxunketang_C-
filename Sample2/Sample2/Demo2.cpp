@@ -348,3 +348,23 @@ void Time_F::display()
 	cout << hour_ << " : " << minute_ << " : " << second_ << endl;
 }
 
+String::String(char * s) :
+	m_ptr(NULL)
+{
+	int len = strlen(s);
+	m_len = len + 1;
+	m_ptr = new char[m_len];//new是申请内存，后面是一个m_len字节的char类型数组
+
+	strcpy_s(m_ptr, m_len, s);
+}
+
+String::~String() 
+{
+	delete[] m_ptr;
+	cout << "~~~~" << endl;
+}
+
+void String::print()
+{
+	printf("%s\n", m_ptr);
+}

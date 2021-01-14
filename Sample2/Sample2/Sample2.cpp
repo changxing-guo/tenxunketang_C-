@@ -505,13 +505,28 @@ void test26() {
 	Time_F t1(22, 31, 59);
 	t1--;
 	t1.display();
-
-
 }
 
+void test27() {
+	String s1("jack");
+	s1.print();
+
+	{
+		String s2("hello");
+		s2 = s1;
+		// 此时这儿=好的具体含义
+		// s2.m_len = s2.m_len， s2.m_ptr = s1.m_ptr
+		s2.print();
+	}
+	//s2释放后将s1.m_ptr指针的内存释放了，导致s1指针指向的内存被释放，所以打印为乱码
+	//同时s2定义是申请的内存也没有被释放，整个程序结束后才会被释放
+	s1.print();
+	//system("pause");
+}
+//程序结束后多次释放同一块内存，会导致程序异常
 
 int main(void) {
 
-	test26();
+	test27();
 	return 0;
 }
