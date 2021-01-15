@@ -616,9 +616,15 @@ void test32()
 	//temp = y5.getI();//不能访问
 	temp = y6.getI();
 }
+
+void test33()
+{
+	D d;
+}
+
 int main(void)
 {
 
-	test31();
+	test33();
 	return 0;
 }

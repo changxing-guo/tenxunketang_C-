@@ -109,3 +109,32 @@ void Y6::test()
 	//temp = x_;//不可访问
 }
 
+C::C()
+{
+	cout << "构造C对象" << endl;
+}
+
+C::~C()
+{
+	cout << "析构C对象" << endl;
+}
+
+BaseT2::BaseT2()
+{
+	cout << "构造BaseT2对象" << endl;
+}
+
+BaseT2::~BaseT2()
+{
+	cout << "析构BaseT2对象" << endl;
+}
+
+D::D()
+{
+	cout << "构造D对象" << endl;
+}
+
+D::~D()
+{
+	cout << "构造D对象" << endl;
+}
