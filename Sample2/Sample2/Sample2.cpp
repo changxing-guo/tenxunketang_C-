@@ -600,6 +600,22 @@ void test31()
 	f.Date::printDate();
 
 }
+
+//继承访问控制规则
+void test32()
+{
+	Y1 y1;
+	Y2 y2;
+
+	int temp;
+	temp = y1.getI();
+	//temp = y2.getI();//不能访问
+
+	Y5 y5;
+	Y6 y6;
+	//temp = y5.getI();//不能访问
+	temp = y6.getI();
+}
 int main(void)
 {
 

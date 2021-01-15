@@ -54,3 +54,58 @@ void Date_Europe::print(bool isEurope)
 		Date::printDate();
 	}
 }
+
+int BaseTest::getI()
+{
+	return i_;
+}
+
+void Y1::test()
+{
+	int temp;
+	temp = getI();
+	temp = i_;
+	//temp = x_;//不可访问
+}
+
+void Y2::test()
+{
+	int temp;
+	temp = getI();
+	temp = i_;
+	//temp = x_;//不可访问
+}
+
+void Y3::test()
+{
+	int temp;
+	temp = getI();
+	temp = i_;
+	//temp = x_;//不可访问
+}
+
+void Y4::test()
+{
+	//因为Y3是私有继承，随意getI和i_对于Y3来说是private
+	int temp;
+	//temp = getI();	//不可访问
+	//temp = i_;		//不可访问
+	//temp = x_;		//不可访问
+}
+
+void Y5::test()
+{
+	int temp;
+	temp = getI();
+	temp = i_;
+	//temp = x_;//不可访问
+}
+
+void Y6::test()
+{
+	int temp;
+	temp = getI();
+	temp = i_;
+	//temp = x_;//不可访问
+}
+
