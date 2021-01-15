@@ -3,6 +3,7 @@
 #include "Teacher.h"
 #include "Demo.h"
 #include "Demo2.h"
+#include "Shape.h"
 
 using namespace std;
 
@@ -561,9 +562,19 @@ void test29()
 	s4.print();
 }
 
+//类的继承测试
+void test30()
+{
+	//派生类的对象调用函数时受继承形式限制
+	Rectangle a;
+	a.setHeight(10);
+	a.setWidth(5);
+
+	cout << a.getArea() << endl;
+}
 int main(void)
 {
 
-	test29();
+	test30();
 	return 0;
 }
