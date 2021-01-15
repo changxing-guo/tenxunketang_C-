@@ -572,9 +572,37 @@ void test30()
 
 	cout << a.getArea() << endl;
 }
+
+//继承的语法
+void test31()
+{
+	Date a(2021);
+	a.printDate();
+
+	Date_Europe b;
+	b.printDate();
+
+	Date c(2021, 1, 1);
+	c.printDate();
+
+	Date_Europe d(2021, 1, 1);
+	d.printDate();
+
+	printf("\n");
+
+	Date_Europe e(2020, 4, 8);
+	e.print(true);
+	e.print(false);
+	printf("\n");
+
+	//使用类名限定符
+	Date_Europe f(2020, 4, 8);
+	f.Date::printDate();
+
+}
 int main(void)
 {
 
-	test30();
+	test31();
 	return 0;
 }
