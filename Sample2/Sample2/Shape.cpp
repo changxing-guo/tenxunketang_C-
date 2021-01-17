@@ -191,9 +191,19 @@ void Base4::showI()
 	cout << "i = " << i_ << endl;
 }
 
+void Base4::showA()
+{
+	cout << "a = " << a_ << endl;
+}
+
 void Base5::showJ()
 {
 	cout << "j = " << j_ << endl;
+}
+
+void Base5::showA()
+{
+	cout << "a = " << a_ << endl;
 }
 
 void Base6::set(int x, int y)
@@ -202,8 +212,20 @@ void Base6::set(int x, int y)
 	j_ = y;
 }
 
+void Base6::setA(int a1, int a2)
+{
+	Base4::a_ = a1;
+	Base5::a_ = a2;
+}
+
 void Base6::show()
 {
 	showI();
 	showJ();
+}
+
+void Base6::show_A()
+{
+	Base4::showA();
+	Base5::showA();
 }

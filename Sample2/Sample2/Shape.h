@@ -197,26 +197,38 @@ protected:
 */
 
 //多重继承的应用背景
+/*
+多重继承的名字的冲突问题
+	名字冲突：指两个基类具有相同名字的成员时，在派生类中这个名字会产生
+二义性，即编译程序无法确定派生类的对象使用改名字时应调用哪一类中的版本。
+	名字冲突的解决办法：
+		作用域预算符指明基类
+*/
 class Base4
 {
 public:
 	void showI();
+	void showA();
 protected:
 	int i_;
+	int a_;
 };
 
 class Base5
 {
 public:
 	void showJ();
+	void showA();
 protected:
 	int j_;
+	int a_;
 };
 
 class Base6 :public Base4, public Base5
 {
 public:
 	void set(int x, int y);
+	void setA(int a1, int a2);
 	void show();
-
+	void show_A();
 };

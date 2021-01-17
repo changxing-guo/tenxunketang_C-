@@ -648,9 +648,19 @@ void test36()
 	obj.show();
 }
 
+void test37()
+{
+	Base6 obj;
+	obj.setA(4, 5);
+	obj.show_A();
+
+	obj.Base4::showA();
+	obj.Base5::showA();
+}
+
 int main(void)
 {
 
-	test36();
+	test37();
 	return 0;
 }
