@@ -675,9 +675,33 @@ void test38()
 
 }
 
+//虚基类测试
+void test39()
+{
+	Base7_6 obj;
+	obj.show1();
+	obj.show2();
+	printf("\n");
+
+	obj.Base7_4::i = 10;
+	obj.show1();
+	obj.show2();
+	printf("\n");
+
+	obj.Base7_5::i = 20;
+	obj.show1();
+	obj.show2();
+	printf("\n");
+
+	obj.i = 30;
+	//obj.show1();
+	//obj.show2();
+	obj.print();
+}
+
 int main(void)
 {
 
-	test38();
+	test39();
 	return 0;
 }

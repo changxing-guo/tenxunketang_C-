@@ -239,3 +239,28 @@ void Base7_2::show2()
 {
 	cout << "base7_2 i address " << &i << endl;
 }
+
+void Base7_3::print()
+{
+	printf("5 i = %d, 6 i = %d\n", Base7_1::i, Base7_2::i);
+	//printf("5 i = %d, 6 i = %d\n", i, i);
+}
+
+void Base7_4::show1()
+{
+	cout << "Base7_4 i address " << &i << endl;
+	cout << i << endl;
+}
+
+void Base7_5::show2()
+{
+	cout << "Base7_5 i address " << &i << endl;
+	cout << i << endl;
+}
+
+void Base7_6::print()
+{
+	//printf("5 i = %d, 6 i = %d\n", Base7_4::i, Base7_5::i);
+	show1();
+	show2();
+}

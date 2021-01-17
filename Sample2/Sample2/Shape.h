@@ -246,6 +246,7 @@ public:
 	复制继承：被多次重复继承的基类有多个实体副本
 	共享继承：被多次重复继承的基类只有一个实体副本
 */
+
 class Base7
 {
 public:
@@ -266,8 +267,40 @@ public:
 	void show2();
 };
 
-class Base7_3 :public Base7_1, public Base7_2
+class Base7_3 :public virtual Base7_1, public Base7_2
 {
 public:
 	int sum;
+	void print();
+};
+
+/*
+虚基类：
+定义：虚基类是当基类被继承时，在基类的继承访问控制关键字前面加上关键字virtual来定义的
+普通基类与虚基类之间的唯一区别只有在派生类重复继承了某一基类时才表现出来，虚基类用于实现共享继承
+
+存在的问题：
+（1）在设计Base,Base4,Base5,时并不知道base6是需要以共享或复制继承
+（2）有有大于一个类重复继承base，但有的需要共享继承，有的需要复制继承
+*/
+
+class Base7_4 :public virtual Base7
+{
+public:
+	int j;
+	void show1();
+};
+
+class Base7_5 :public virtual Base7
+{
+public:
+	int k;
+	void show2();
+};
+
+class Base7_6 :public virtual Base7_4, public Base7_5
+{
+public:
+	int sum;
+	void print();
 };
