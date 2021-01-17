@@ -232,3 +232,42 @@ public:
 	void show();
 	void show_A();
 };
+
+/*
+重复继承
+重复继承的应用背景
+	1、定义
+	指一个派生类多次继承同一个基类
+	c++中关于继承的限制
+		不允许一个派生类直接继承同一个基类两次以上，
+		不允许一个基类即是直接基类又是间接基类
+
+	2、重复继承的两种类型
+	复制继承：被多次重复继承的基类有多个实体副本
+	共享继承：被多次重复继承的基类只有一个实体副本
+*/
+class Base7
+{
+public:
+	int i;
+};
+
+class Base7_1 :public Base7
+{
+public:
+	int j;
+	void show1();
+};
+
+class Base7_2 :public Base7
+{
+public:
+	int k;
+	void show2();
+};
+
+class Base7_3 :public Base7_1, public Base7_2
+{
+public:
+	int sum;
+};

@@ -229,3 +229,13 @@ void Base6::show_A()
 	Base4::showA();
 	Base5::showA();
 }
+
+void Base7_1::show1()
+{
+	cout << "base7_1 i address " << &i << endl;
+}
+
+void Base7_2::show2()
+{
+	cout << "base7_2 i address " << &i << endl;
+}

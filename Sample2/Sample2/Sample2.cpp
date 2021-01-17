@@ -658,9 +658,26 @@ void test37()
 	obj.Base5::showA();
 }
 
+void test38()
+{
+	Base7_3 obj;
+	//i的地址不一样，表示有两个副本实体
+	obj.show1();
+	obj.show2();
+	/*
+	base7_1 i address 006FF7B8
+	base7_1 i address 006FF7B8
+	*/
+	//obj.i = 5	//错误，编译程序无法确定i使用的是哪一个副本
+	//下面是正常的，通过作用域限定符可以指明是那一份副本
+	obj.Base7_1::i = 10;
+	obj.Base7_2::i = 20;
+
+}
+
 int main(void)
 {
 
-	test37();
+	test38();
 	return 0;
 }
