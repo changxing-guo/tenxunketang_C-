@@ -632,9 +632,17 @@ void test34()
 	*/
 }
 
+void test35()
+{
+	Base3_1 a;
+	a.setI(5);
+	a.setJ(6);
+	cout << "i+j = " << a.getIJ() << endl;
+}
+
 int main(void)
 {
 
-	test34();
+	test35();
 	return 0;
 }

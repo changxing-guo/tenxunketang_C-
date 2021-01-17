@@ -167,3 +167,23 @@ private :
 public :
 	Base2_1(int a, int b, int c, int d, int e);
 };
+
+//恢复访问控制方式
+class Base3
+{
+public :
+	void setI(int i);
+	int getI();
+protected :
+	int i_;
+};
+
+class Base3_1 : private Base3
+{
+public : 
+	Base3::setI;	//访问声明,很少使用，只是说明有这种用法
+	void setJ(int j);
+	int getIJ();
+protected:
+	int j_;
+};

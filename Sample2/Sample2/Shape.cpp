@@ -154,3 +154,23 @@ Base2_1::Base2_1(int a, int b, int c, int d, int e)
 {
 	cout << "Base2_1(int a, int b, int c, int d, int e)" << endl;
 }
+
+int Base3::getI()
+{
+	return i_;
+}
+
+void Base3::setI(int i)
+{
+	i_ = i;
+}
+
+void Base3_1::setJ(int j)
+{
+	j_ = j;
+}
+
+int Base3_1::getIJ()
+{
+	return i_ + j_;
+}
