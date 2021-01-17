@@ -641,9 +641,16 @@ void test35()
 	a.print();
 }
 
+void test36()
+{
+	Base6 obj;
+	obj.set(1, 2);
+	obj.show();
+}
+
 int main(void)
 {
 
-	test35();
+	test36();
 	return 0;
 }

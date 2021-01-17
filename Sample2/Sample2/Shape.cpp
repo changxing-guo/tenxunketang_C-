@@ -185,3 +185,25 @@ void Base3_1::print()
 	Base3::print();
 	//cout << "Base3_1 print" << endl;
 }
+
+void Base4::showI()
+{
+	cout << "i = " << i_ << endl;
+}
+
+void Base5::showJ()
+{
+	cout << "j = " << j_ << endl;
+}
+
+void Base6::set(int x, int y)
+{
+	i_ = x;
+	j_ = y;
+}
+
+void Base6::show()
+{
+	showI();
+	showJ();
+}
