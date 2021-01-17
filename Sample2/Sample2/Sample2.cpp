@@ -638,6 +638,7 @@ void test35()
 	a.setI(5);
 	a.setJ(6);
 	cout << "i+j = " << a.getIJ() << endl;
+	a.print();
 }
 
 int main(void)

@@ -160,30 +160,39 @@ public:
 
 class Base2_1 :public Base2
 {
-private :
+private:
 	int c_;
 	Base2 d_;
 
-public :
+public:
 	Base2_1(int a, int b, int c, int d, int e);
 };
 
 //恢复访问控制方式
 class Base3
 {
-public :
+public:
 	void setI(int i);
 	int getI();
-protected :
+	void print();
+protected:
 	int i_;
 };
 
 class Base3_1 : private Base3
 {
-public : 
+public:
 	Base3::setI;	//访问声明,很少使用，只是说明有这种用法
 	void setJ(int j);
 	int getIJ();
+	void print();
 protected:
 	int j_;
 };
+
+//继承成员的重定义
+/*
+	派生类中定义了一个函数原型与继承成员函数一样的成员函数，
+	但语义上修改了成员函数的实现
+*/
+

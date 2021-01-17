@@ -165,6 +165,11 @@ void Base3::setI(int i)
 	i_ = i;
 }
 
+void Base3::print()
+{
+	cout << "Base3 print" << endl;
+}
+
 void Base3_1::setJ(int j)
 {
 	j_ = j;
@@ -173,4 +178,10 @@ void Base3_1::setJ(int j)
 int Base3_1::getIJ()
 {
 	return i_ + j_;
+}
+
+void Base3_1::print()
+{
+	Base3::print();
+	//cout << "Base3_1 print" << endl;
 }
