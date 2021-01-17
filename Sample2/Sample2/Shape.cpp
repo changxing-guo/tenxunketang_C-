@@ -138,3 +138,19 @@ D::~D()
 {
 	cout << "构造D对象" << endl;
 }
+
+Base2::Base2(int a, int b)
+{
+	cout << "Base2::Base2(int a, int b)" << endl;
+}
+
+Base2::Base2(int a)
+{
+	cout << "Base2::Base2(int a)" << endl;
+}
+
+Base2_1::Base2_1(int a, int b, int c, int d, int e)
+	: Base2(a, b), d_(c)
+{
+	cout << "Base2_1(int a, int b, int c, int d, int e)" << endl;
+}

@@ -141,3 +141,29 @@ public:
 private:
 	C obj_;
 };
+
+//向基类构造函数传递实际参数
+/*
+	通过向派生类构造函数传递实际参数以及初始化参数列表来间接实现传递的
+	带初始化列表的派生类构造函数的一般形式
+*/
+
+class Base2
+{
+private:
+	int a_;
+	int b_;
+public:
+	Base2(int a);
+	Base2(int a, int b);
+};
+
+class Base2_1 :public Base2
+{
+private :
+	int c_;
+	Base2 d_;
+
+public :
+	Base2_1(int a, int b, int c, int d, int e);
+};
