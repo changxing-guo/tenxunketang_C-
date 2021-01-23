@@ -304,3 +304,35 @@ public:
 	int sum;
 	void print();
 };
+
+class Base8
+{
+public :
+	Base8();
+	~Base8();
+};
+
+class Base8_1
+{
+public:
+	Base8_1();
+	~Base8_1();
+};
+
+class Base8_2 :public Base8_1, virtual public Base8
+{
+public :
+	Base8_2();
+	~Base8_2();
+};
+
+class Base8_3 :public Base8_2, virtual public Base8_1
+{
+public:
+	Base8_3();
+	~Base8_3();
+};
+
+
+
+

@@ -699,9 +699,20 @@ void test39()
 	obj.print();
 }
 
+void test40()
+{
+	{
+		cout << "构造" << endl;
+		Base8_3 a;
+
+		cout << "析构" << endl;
+	}
+
+}
+
 int main(void)
 {
 
-	test39();
+	test40();
 	return 0;
 }
