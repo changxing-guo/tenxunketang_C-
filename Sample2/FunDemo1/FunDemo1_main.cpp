@@ -58,7 +58,7 @@ T max_value(T x, T y, T z)
 	return temp > z ? temp : z;
 }
 
-int main(void)
+int test1(void)
 {
 	int a = 1;
 	int b = 2;
@@ -84,6 +84,78 @@ int main(void)
 	cout << max_value(12.0, 34.2, 23.4) << endl;
 	cout << max_value('a', 'b', 'c') << endl;
 
+	//system("pause");
+	return 0;
+}
+
+// 编写一个带有两个形式参数的函数模板，可以按指定的操作数类型相乘
+template <typename P1, typename P2>
+P1 cal(P1 x, P2 y)	// 有两个参数化类型名：P1和P2
+{
+	return (x * (P1)y);
+}
+
+void test2()
+{
+	int w = 2;
+	float z = 1.5;
+
+	cout << cal(w, z) << endl;
+	cout << cal(z, w) << endl;
+}
+
+// 函数模板的形式参数表中除了使用参数化类型名（T array)以外
+// 还可以使用确定类型的参数（int num）
+template <class T>
+void ArrayInput(T array, int num)
+{
+	cout << "输入" << num << "个" << typeid(T).name()
+		<< "\b" << "型数据类型" << endl;
+	for (int i = 0; i < num; i++)
+	{
+		cin >> array[i];
+	}
+}
+
+void test3()
+{
+	int number;
+	char charArray[3];
+
+	number = sizeof(charArray) / sizeof(char);
+	ArrayInput(charArray, number);
+
+	for (int i = 0; i < number; i++)
+	{
+		cout << charArray[i] << " ";
+	}
+	printf("\n\n");
+
+	int intArray[3];
+	number = sizeof(intArray) / sizeof(int);
+	ArrayInput(intArray, number);
+
+	for (int i = 0; i < number; i++)
+	{
+		cout << intArray[i] << " ";
+	}
+	printf("\n\n");
+
+	float floatArray[3];
+	number = sizeof(floatArray) / sizeof(float);
+	ArrayInput(floatArray, number);
+
+	for (int i = 0; i < number; i++)
+	{
+		cout << floatArray[i] << " ";
+	}
+	printf("\n\n");
+
+}
+
+int main(void)
+{
+	test3();
 	system("pause");
 	return 0;
 }
