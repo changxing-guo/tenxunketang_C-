@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
 
 using namespace std;
 
@@ -53,6 +54,7 @@ void  max_t1(T1 x, T2 y)
 template <typename T>
 T max_value(T x, T y, T z)
 {
+	cout << "max_value(T x, T y, T z)" << endl;
 	T temp;
 	temp = x > y ? x : y;
 	return temp > z ? temp : z;
@@ -153,9 +155,66 @@ void test3()
 
 }
 
+//重载函数模板
+/*
+重载函数模板可以是函数模板和另一个参数数目不同的函数模板的重载
+也可以是函数模板和非模板函数的重载，一般所说的函数模板重载是指后一种情况
+
+	- 函数模板和非模板函数重载，可以解决函数模板不支持参数自动转换的问题
+	- 当所使用的参数类型（不是类类型）不支持函数模板中某些操作时，就需要为
+	这样的参数专门编写响应的非函数模板。和已经定义的函数模板形成重载的关系
+
+
+*/
+// 函数重载
+template <typename T>
+T max_value(T x, T y)
+{
+	cout << "max_value(T x, T y)" << endl;
+	return x > y ? x : y;
+}
+
+void test4()
+{
+	max_value(1, 2);
+	max_value(1, 2, 3);
+}
+// 比较结构体的大小
+typedef struct student
+{
+	char name[20];
+	float score;
+
+}Student;
+// 非模板函数重载，可以解决函数模板不支持参数自动转换的问题
+// 所以要自定义非模板函数
+Student max_value(Student s1, Student s2, Student s3)
+{
+	Student temp;
+	temp = s1.score > s2.score ? s1 : s2;
+	return temp.score > s3.score ? temp : s3;
+}
+
+void test5()
+{
+	Student s1;
+	strcpy(s1.name, "jack");
+	s1.score = 100;
+	Student s2;
+	strcpy(s2.name, "gcx");
+	s2.score = 120;
+	Student s3;
+	strcpy(s3.name, "sr");
+	s3.score = 99;
+
+	Student s4 = max_value(s1, s2, s3);
+	cout << s4.name << " : " << s4.score << endl;
+
+}
+
 int main(void)
 {
-	test3();
+	test5();
 	system("pause");
 	return 0;
 }
