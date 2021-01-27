@@ -212,9 +212,68 @@ void test5()
 
 }
 
+// 类模板
+template <class T1, class T2>
+class MyClass
+{
+private:
+	T1 x;
+	T2 y;
+	int z;
+
+public:
+	MyClass(T1 a, T2 b);
+	void display();
+	void setX(T1 a);
+	void setZ(int c);
+};
+
+/*
+在类模板的外部定义类模板的成员函数时的格式
+	- 首先要使用类模板的头部，以表明类模板定义了几个参数化类型名
+	- 作用域预算符“::”签名的类名用类模板名代替，而且也要在尖括号中注明所有类模板的参数化类型名
+	- 函数的参数表或自动变量的定义，则是可以使用参数化类型名，也可以不使用
+*/
+
+template <class T1, class T2>
+MyClass<T1, T2>::MyClass(T1 a, T2 b)
+	:x(a), y(b)
+{
+}
+
+template <class T1, class T2>
+void MyClass<T1, T2>::display()
+{
+	cout << "x = " << x << endl;
+	cout << "y = " << y << endl;
+}
+
+template <class T1, class T2>
+void MyClass<T1, T2>::setX(T1 a)
+{
+	x = a;
+}
+
+template <class T1, class T2>
+void MyClass<T1, T2>::setZ(int c)
+{
+	z = c;
+}
+
+void test6()
+{
+	MyClass<int, float> s1(6, 10.1);
+	s1.display();
+	printf("\n");
+
+	MyClass<char, char *> s2('A', "this is a test");
+	s2.display();
+}
+
+
 int main(void)
 {
-	test5();
+	test6();
 	system("pause");
 	return 0;
 }
